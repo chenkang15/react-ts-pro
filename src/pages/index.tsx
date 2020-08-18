@@ -1,18 +1,16 @@
 import React from 'react';
 import styles from './index.css';
-
-export default function() {
+import { Link } from 'react-router-dom';
+import a from './a'
+import PromiseComp from '@/pages/test/promise';
+const FC: React.FC<{}> = function(props) {
+  setTimeout(() => a.val = 10)
   return (
     <div className={styles.normal}>
-      <div className={styles.welcome} />
-      <ul className={styles.list}>
-        <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
-        <li>
-          <a href="https://umijs.org/guide/getting-started.html">
-            Getting Started
-          </a>
-        </li>
-      </ul>
+      <Link to="/test">test</Link>
+      {props.children}
+      <PromiseComp/>
     </div>
   );
 }
+export default FC
